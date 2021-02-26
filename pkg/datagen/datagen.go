@@ -1,26 +1,37 @@
 package gen
 
 import (
+	"encoding/json"
+	"io/ioutil"
 	"math/rand"
+	"os"
 	"time"
 )
 
-type Message struct {
-	Facility Facility
-	Patient  Patient
-	Visit    Visit
+type Code struct {
+	ExtCode     string `json:"ext_code"`
+	Description string `json:"description"`
+}
+
+type CodeList struct {
+	Codesets []Codeset `json:"codesets"`
+}
+
+type Codeset struct {
+	Codeset  string         `json:"codeset"`
+	FillRate int            `json:"fill_rate"`
+	Values   []WeightedCode `json:"values"`
 }
 
 type WeightedCode struct {
-	Name    string `json:"name,omitempty"`
-	IntCode string `json:"int_code,omitempty"`
-	ExtCode string `json:"ext_code,omitempty"`
-	Weight  int    `json:"weight,omitempty"`
+	IntCode string `json:"int_code"`
+	Weight  int    `json:"weight"`
+	Code    Code   `json:"code"`
 }
 
 type WeightedValue struct {
-	Value  string `json:"value,omitempty"`
-	Weight int    `json:"weight,omitempty"`
+	Value  string `json:"value"`
+	Weight int    `json:"weight"`
 }
 
 func randomDate(start, end time.Time) time.Time {
@@ -39,25 +50,56 @@ func randomInt(min, max int) int {
 	return out
 }
 
+//ReturnByInternalCode takes a codeset and an internal code.  It
+//returns a Code struct that supplies the external values needed for
+//message generation.
+func ReturnByInternalCode(cs, cv string) (Code, error) {
+	var out Code
+
+	//Loading code file
+	file := dataPath + codeFile
+
+	j, err := os.Open(file)
+	if err != nil {
+		return out, err
+	}
+	defer j.Close()
+
+	b, _ := ioutil.ReadAll(j)
+
+	var c CodeList
+
+	err = json.Unmarshal(b, &c)
+	if err != nil {
+		return out, err
+	}
+
+	return out, nil
+}
+
 //ReturnRandomCode takes a list of weighted codes and returns
 //one of the corresponding codes at random.  The Weight values of the
 //referenced list must be > 0 to avoid processing error.
-func ReturnRandomCode(l *[]WeightedCode) (WeightedCode, error) {
+func ReturnRandomWeightedCode(l *Codeset) (WeightedCode, error) {
 	var out WeightedCode
 	var count int
 	var cur int
 
-	for i := 0; i < len(*l); i++ {
-		count = count + (*l)[i].Weight
-	}
+	bng := randomInt(1, 1000)
+	if bng <= l.FillRate {
 
-	rng := randomInt(1, count)
+		for i := 0; i < len(l.Values); i++ {
+			count = count + (l.Values)[i].Weight
+		}
 
-	for i := 0; i < len(*l); i++ {
-		cur = cur + (*l)[i].Weight
-		if cur >= rng {
-			out = (*l)[i]
-			return out, nil
+		rng := randomInt(1, count)
+
+		for i := 0; i < len(l.Values); i++ {
+			cur = cur + (l.Values)[i].Weight
+			if cur >= rng {
+				out = (l.Values)[i]
+				return out, nil
+			}
 		}
 	}
 

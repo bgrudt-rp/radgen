@@ -10,13 +10,16 @@ import (
 )
 
 type Patient struct {
-	FirstName   string
-	MiddleName  string
-	LastName    string
-	Address     Address
-	DateOfBirth time.Time
-	Sex         Sex
-	Race        Race
+	FirstName     string
+	MiddleName    string
+	LastName      string
+	Address       Address
+	DateOfBirth   time.Time
+	Sex           Code
+	Race          Code
+	Ethnicity     Code
+	Language      Code
+	MaritalStatus Code
 }
 
 type Address struct {
@@ -28,31 +31,9 @@ type Address struct {
 	County   string
 }
 
-type Sex struct {
-	Code        string
-	Description string
-}
-
-type Race struct {
-	InternalCode         string
-	Code                 string
-	Description          string
-	EthnicityCode        string
-	EthnicityDescription string
-}
-
 type Addresses struct {
 	Line1 []WeightedValue `json:"line_one,omitempty"`
 	Line2 []WeightedValue `json:"line_two,omitempty"`
-}
-
-type CodeList struct {
-	Codesets []Codeset `json:"codesets,omitempty"`
-}
-
-type Codeset struct {
-	Codeset string         `json:"codeset,omitempty"`
-	Values  []WeightedCode `json:"values,omitempty"`
 }
 
 type FirstNames struct {
@@ -78,13 +59,6 @@ type DecadeName struct {
 //been explicitly set.  If the message that is referenced in the input params
 //has non-nil patient fields, those fields will not be overwritten.
 func RandomizePatient(m *Message) error {
-	const (
-		dataPath       = "/users/brandongrudt/projects/hl7cli/fixtures/datagen/"
-		firstNameFile  = "first_name.json"
-		lastNameFile   = "last_name.json"
-		middleNameFile = "middle_name.json"
-		addressFile    = "street_address.json"
-	)
 
 	err := GeneratePatientDateOfBirth(m)
 	if err != nil {
@@ -108,12 +82,9 @@ func RandomizePatient(m *Message) error {
 	return nil
 }
 
+//GeneratePatientAddress uses the locale list of a client
+//to assign a random street address for a patient.
 func GeneratePatientAddress(m *Message) error {
-	const (
-		dataPath    = "/users/brandongrudt/projects/hl7cli/fixtures/datagen/"
-		addressFile = "street_address.json"
-	)
-
 	//Street address
 	file := dataPath + addressFile
 
@@ -158,6 +129,36 @@ func GeneratePatientAddress(m *Message) error {
 			return err
 		}
 		m.Patient.Address.Address2 = l2
+
+		file2 := dataPath + clientFile
+		j2, err := os.Open(file2)
+		if err != nil {
+			return err
+		}
+		defer j2.Close()
+
+		b2, _ := ioutil.ReadAll(j2)
+
+		var f2 ClientList
+
+		err = json.Unmarshal(b2, &f2)
+		if err != nil {
+			return err
+		}
+		for i := 0; i < len(f2.ClinicalClients); i++ {
+			if m.Client.UQName == f2.ClinicalClients[i].UQName {
+				lo, err := returnRandomLocale(&f2.ClinicalClients[i].Locales)
+				if err != nil {
+					return err
+				}
+				m.Patient.Address.City = lo.City
+				m.Patient.Address.State = lo.State
+				m.Patient.Address.Zip = lo.Zip
+
+				break
+			}
+		}
+
 	} else {
 		m.Patient.Address.City = ""
 		m.Patient.Address.State = ""
@@ -166,11 +167,9 @@ func GeneratePatientAddress(m *Message) error {
 	return nil
 }
 
+//GeneratePatientCodes takes an inbound message pointer and assigns
+//coded values to the patient level of the message struct.
 func GeneratePatientCodes(m *Message) error {
-	const (
-		dataPath = "/users/brandongrudt/projects/hl7cli/fixtures/datagen/"
-		codeFile = "codes.json"
-	)
 	//Loading code file
 	file := dataPath + codeFile
 
@@ -189,48 +188,83 @@ func GeneratePatientCodes(m *Message) error {
 		return err
 	}
 
-	//Sex
-	if len(m.Patient.Sex.Code) < 1 {
-		for i := 0; i < len(c.Codesets); i++ {
-			if c.Codesets[i].Codeset == "sex" {
-				v, err := ReturnRandomCode(&c.Codesets[i].Values)
+	for i := 0; i < len(c.Codesets); i++ {
+		switch c.Codesets[i].Codeset {
+		case "sex":
+			if len(m.Patient.Sex.ExtCode) < 1 {
+				v, err := ReturnRandomWeightedCode(&c.Codesets[i])
 				if err != nil {
 					return err
 				}
-				m.Patient.Sex.Code = v.ExtCode
-				m.Patient.Sex.Description = v.Name
+				m.Patient.Sex = v.Code
+			}
+		case "race":
+			if len(m.Patient.Race.ExtCode) < 1 {
+				v, err := ReturnRandomWeightedCode(&c.Codesets[i])
+				if err != nil {
+					return err
+				}
+				m.Patient.Race = v.Code
+			}
+		case "ethnicity":
+			if len(m.Patient.Ethnicity.ExtCode) < 1 {
+				v, err := ReturnRandomWeightedCode(&c.Codesets[i])
+				if err != nil {
+					return err
+				}
+				m.Patient.Ethnicity = v.Code
+			}
+		case "language":
+			if len(m.Patient.Language.ExtCode) < 1 {
+				v, err := ReturnRandomWeightedCode(&c.Codesets[i])
+				if err != nil {
+					return err
+				}
+				m.Patient.Language = v.Code
+			}
+		case "marital_status":
+			if len(m.Patient.Sex.ExtCode) < 1 {
+				t := time.Now()
+				if m.Patient.DateOfBirth.After(t.AddDate(-18, 0, 0)) {
+					num := randomInt(1, 4)
+					switch num {
+					case 1:
+						v, err := ReturnByInternalCode("marital_status", "other")
+						if err != nil {
+							return err
+						}
+						m.Patient.MaritalStatus = v
+					case 2:
+						v, err := ReturnByInternalCode("marital_status", "single")
+						if err != nil {
+							return err
+						}
+						m.Patient.MaritalStatus = v
+					case 3:
+						v, err := ReturnByInternalCode("marital_status", "unreported")
+						if err != nil {
+							return err
+						}
+						m.Patient.MaritalStatus = v
+					default:
+						v, err := ReturnByInternalCode("marital_status", "unknown")
+						if err != nil {
+							return err
+						}
+						m.Patient.MaritalStatus = v
+					}
+				}
+
+				v, err := ReturnRandomWeightedCode(&c.Codesets[i])
+				if err != nil {
+					return err
+				}
+				m.Patient.Sex = v.Code
 			}
 		}
+
 	}
 
-	//Race
-	if len(m.Patient.Race.Code) < 1 {
-		for i := 0; i < len(c.Codesets); i++ {
-			if c.Codesets[i].Codeset == "race" {
-				v, err := ReturnRandomCode(&c.Codesets[i].Values)
-				if err != nil {
-					return err
-				}
-				m.Patient.Race.InternalCode = v.IntCode
-				m.Patient.Race.Code = v.ExtCode
-				m.Patient.Race.Description = v.Name
-			}
-		}
-	}
-
-	//Ethnicity
-	if len(m.Patient.Race.EthnicityCode) < 1 {
-		for i := 0; i < len(c.Codesets); i++ {
-			if c.Codesets[i].Codeset == "ethnicity" {
-				v, err := ReturnRandomCode(&c.Codesets[i].Values)
-				if err != nil {
-					return err
-				}
-				m.Patient.Race.EthnicityCode = v.ExtCode
-				m.Patient.Race.EthnicityDescription = v.Name
-			}
-		}
-	}
 	return nil
 }
 
@@ -246,14 +280,11 @@ func GeneratePatientDateOfBirth(m *Message) error {
 	return nil
 }
 
+//GeneratePatientName should be run after the patient age and sex have been assigned
+//to a message.  This function will generate a first, middle, and last name
+//based on their sex and decade of birth.  It will generate a random DOB if
+//the input pointer does not contain a viable DOB.
 func GeneratePatientName(m *Message) error {
-	const (
-		dataPath       = "/users/brandongrudt/projects/hl7cli/fixtures/datagen/"
-		firstNameFile  = "first_name.json"
-		lastNameFile   = "last_name.json"
-		middleNameFile = "middle_name.json"
-	)
-
 	//Generate a DOB if there is none - needed for name
 	err := GeneratePatientDateOfBirth(m)
 	if err != nil {
@@ -286,13 +317,13 @@ func GeneratePatientName(m *Message) error {
 	for i := 0; i < len(fn.Names); i++ {
 		if fn.Names[i].Decade[0:3] == dec {
 
-			if m.Patient.Sex.Code == "M" {
+			if m.Patient.Sex.ExtCode == "M" {
 				first, err := ReturnRandomValue(&fn.Names[i].Male)
 				if err != nil {
 					return err
 				}
 				m.Patient.FirstName = first
-			} else if m.Patient.Sex.Code == "F" {
+			} else if m.Patient.Sex.ExtCode == "F" {
 				first, err := ReturnRandomValue(&fn.Names[i].Female)
 				if err != nil {
 					return err
@@ -336,13 +367,13 @@ func GeneratePatientName(m *Message) error {
 		return err
 	}
 
-	if m.Patient.Sex.Code == "M" {
+	if m.Patient.Sex.ExtCode == "M" {
 		mid, err := ReturnRandomValue(&mn.Male)
 		if err != nil {
 			return err
 		}
 		m.Patient.MiddleName = mid
-	} else if m.Patient.Sex.Code == "F" {
+	} else if m.Patient.Sex.ExtCode == "F" {
 		mid, err := ReturnRandomValue(&mn.Female)
 		if err != nil {
 			return err
