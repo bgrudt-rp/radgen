@@ -6,7 +6,6 @@ import (
 	"os"
 
 	"github.com/bgrudt/radgen/config"
-
 	"github.com/davecgh/go-spew/spew"
 )
 
