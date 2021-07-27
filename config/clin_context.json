@@ -1,0 +1,139 @@
+{
+    "clin_contexts": [
+        {
+            "clin_client": "columbus_reg",
+            "locations": [
+                {
+                    "uq_name": "emergency",
+                    "loc_name": "Emergency Department",
+                    "loc_code": "ER",
+                    "weight": 1,
+                    "contexts": [
+                        {
+                            "service": "emergency",
+                            "pt_class":"emergency",
+                            "pt_type": "emergency",
+                            "admit_type": "emergency",
+                            "admit_source": "er",
+                            "weight": 5
+                        },
+                        {
+                            "service": "emergency",
+                            "pt_class":"preadmit",
+                            "pt_type": "emergency",
+                            "admit_type": "emergency",
+                            "admit_source": "er",
+                            "weight": 5
+                        }             
+                    ]
+                },
+                {
+                    "uq_name": "inpatient",
+                    "loc_name": "Inpatient Wing",
+                    "loc_code": "INP",
+                    "weight": 1,
+                    "contexts": [
+                        {
+                            "service": "ambulatory",
+                            "pt_class":"inpatient",
+                            "pt_type": "inpatient",
+                            "admit_type": "urgent",
+                            "admit_source": "trans_hosp",
+                            "weight": 2
+                        }
+                    ]
+                }              
+            ]
+        },
+        {
+            "clin_client": "grant_mc",
+            "locations": [
+                {
+                    "uq_name": "emergency",
+                    "loc_name": "Grant Emergency",
+                    "loc_code": "GED",
+                    "weight": 1,
+                    "contexts": [
+                        {
+                            "service": "emergency",
+                            "pt_class":"emergency",
+                            "pt_type": "emergency",
+                            "admit_type": "emergency",
+                            "admit_source": "er",
+                            "weight": 5
+                        },
+                        {
+                            "service": "emergency",
+                            "pt_class":"preadmit",
+                            "pt_type": "emergency",
+                            "admit_type": "emergency",
+                            "admit_source": "er",
+                            "weight": 5
+                        }                
+                    ]
+                },
+                {
+                    "uq_name": "inpatient",
+                    "loc_name": "Inpatient 3rd Floor",
+                    "loc_code": "INP3",
+                    "weight": 1,
+                    "contexts": [
+                        {
+                            "service": "ambulatory",
+                            "pt_class":"inpatient",
+                            "pt_type": "inpatient",
+                            "admit_type": "urgent",
+                            "admit_source": "trans_hosp",
+                            "weight": 2
+                        }
+                    ]
+                }              
+            ]
+        },
+        {
+            "clin_client": "memhosp_uc",
+            "locations": [
+                {
+                    "uq_name": "emergency",
+                    "loc_name": "MHUC ED",
+                    "loc_code": "MHER",
+                    "weight": 1,
+                    "contexts": [
+                        {
+                            "service": "emergency",
+                            "pt_class":"emergency",
+                            "pt_type": "emergency",
+                            "admit_type": "emergency",
+                            "admit_source": "er",
+                            "weight": 5
+                        },
+                        {
+                            "service": "emergency",
+                            "pt_class":"preadmit",
+                            "pt_type": "emergency",
+                            "admit_type": "emergency",
+                            "admit_source": "er",
+                            "weight": 5
+                        }                      
+                    ]
+                },
+                {
+                    "uq_name": "morey",
+                    "loc_name": "Morey Center",
+                    "loc_code": "MOREY",
+                    "weight": 1,
+                    "contexts": [
+                        {
+                            "service": "ambulatory",
+                            "pt_class":"inpatient",
+                            "pt_type": "inpatient",
+                            "admit_type": "urgent",
+                            "admit_source": "trans_hosp",
+                            "weight": 2
+                        }
+                    ]
+                }              
+            ]
+        }
+    ]
+}

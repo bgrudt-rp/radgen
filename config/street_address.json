@@ -1,0 +1,538 @@
+{
+    "line_one": [
+        {
+            "value": "",
+            "weight": 10
+         },
+         {
+            "value": "1st St",
+            "weight": 1
+         },
+         {
+            "value": "1st Street",
+            "weight": 1
+         },
+         {
+            "value": "2nd St.",
+            "weight": 1
+         },
+         {
+            "value": "2nd Street",
+            "weight": 1
+         },
+         {
+            "value": "3rd St",
+            "weight": 1
+         },
+         {
+            "value": "3rd St.",
+            "weight": 1
+         },
+         {
+            "value": "4th St",
+            "weight": 1
+         },
+         {
+            "value": "5th Ave.",
+            "weight": 1
+         },
+         {
+            "value": "5th Avenue",
+            "weight": 1
+         },
+         {
+            "value": "5th Street",
+            "weight": 1
+         },
+         {
+            "value": "6th St",
+            "weight": 1
+         },
+         {
+            "value": "7th St.",
+            "weight": 1
+         },
+         {
+            "value": "7th Ave",
+            "weight": 1
+         },
+         {
+            "value": "8th Street",
+            "weight": 1
+         },
+         {
+            "value": "9th St",
+            "weight": 1
+         },
+         {
+            "value": "10th Street",
+            "weight": 1
+         },
+         {
+            "value": "10th St.",
+            "weight": 1
+         },
+         {
+            "value": "Airport Rd",
+            "weight": 1
+         },
+         {
+            "value": "Airport Drive",
+            "weight": 1
+         },
+         {
+            "value": "Apache",
+            "weight": 1
+         },
+         {
+            "value": "Aspen Dr.",
+            "weight": 1
+         },
+         {
+            "value": "Aspen Lane",
+            "weight": 1
+         },
+         {
+            "value": "Bay View",
+            "weight": 1
+         },
+         {
+            "value": "Bayside Drive",
+            "weight": 1
+         },
+         {
+            "value": "Bear Swamp Road",
+            "weight": 1
+         },
+         {
+            "value": "Birch",
+            "weight": 1
+         },
+         {
+            "value": "Blue Holler",
+            "weight": 1
+         },
+         {
+            "value": "Birch Lane",
+            "weight": 1
+         },
+         {
+            "value": "Cedar Road",
+            "weight": 1
+         },
+         {
+            "value": "Cedar St.",
+            "weight": 1
+         },
+         {
+            "value": "Collins Rd.",
+            "weight": 1
+         },
+         {
+            "value": "Collins Road",
+            "weight": 1
+         },
+         {
+            "value": "County Line 8",
+            "weight": 1
+         },
+         {
+            "value": "CL 220",
+            "weight": 1
+         },
+         {
+            "value": "County Round 11",
+            "weight": 1
+         },
+         {
+            "value": "Delaware Dr.",
+            "weight": 1
+         },
+         {
+            "value": "Dogwood Lane",
+            "weight": 1
+         },
+         {
+            "value": "East Main St.",
+            "weight": 1
+         },
+         {
+            "value": "East Oak Drive",
+            "weight": 1
+         },
+         {
+            "value": "Elm Ct.",
+            "weight": 1
+         },
+         {
+            "value": "Evergreen Dr",
+            "weight": 1
+         },
+         {
+            "value": "Fifth Ave",
+            "weight": 1
+         },
+         {
+            "value": "First St.",
+            "weight": 1
+         },
+         {
+            "value": "Fourth St",
+            "weight": 1
+         },
+         {
+            "value": "Hemlock Rd",
+            "weight": 1
+         },
+         {
+            "value": "Hillside Blvd.",
+            "weight": 1
+         },
+         {
+            "value": "Indianola",
+            "weight": 1
+         },
+         {
+            "value": "Juniper Hollow",
+            "weight": 1
+         },
+         {
+            "value": "Juniper Street",
+            "weight": 1
+         },
+         {
+            "value": "Killdeer Ct.",
+            "weight": 1
+         },
+         {
+            "value": "Kingsboro Rd",
+            "weight": 1
+         },
+         {
+            "value": "Kingsbury",
+            "weight": 1
+         },
+         {
+            "value": "Lake Rd",
+            "weight": 1
+         },
+         {
+            "value": "Lakeside Road",
+            "weight": 1
+         },
+         {
+            "value": "Laurel Hwy",
+            "weight": 1
+         },
+         {
+            "value": "Lincoln Ave.",
+            "weight": 1
+         },
+         {
+            "value": "Lincoln Dr",
+            "weight": 1
+         },
+         {
+            "value": "Magnolia",
+            "weight": 1
+         },
+         {
+            "value": "Main",
+            "weight": 1
+         },
+         {
+            "value": "Main St",
+            "weight": 2
+         },
+         {
+            "value": "Main St.",
+            "weight": 3
+         },
+         {
+            "value": "Main Street",
+            "weight": 6
+         },
+         {
+            "value": "Maple",
+            "weight": 1
+         },
+         {
+            "value": "Maple Ridge Rd",
+            "weight": 1
+         },
+         {
+            "value": "Mesquite",
+            "weight": 1
+         },
+         {
+            "value": "Michigan Ave.",
+            "weight": 1
+         },
+         {
+            "value": "MLK Boulevard",
+            "weight": 4
+         },
+         {
+            "value": "MLK Drive",
+            "weight": 2
+         },
+         {
+            "value": "Morning Lark Rd",
+            "weight": 1
+         },
+         {
+            "value": "Mountain View",
+            "weight": 1
+         },
+         {
+            "value": "Oak St",
+            "weight": 2
+         },
+         {
+            "value": "Oak St.",
+            "weight": 2
+         },
+         {
+            "value": "Oak Street",
+            "weight": 3
+         },
+         {
+            "value": "Ocean Drive",
+            "weight": 1
+         },
+         {
+            "value": "Oceanview Blvd",
+            "weight": 1
+         },
+         {
+            "value": "Orchard Lake Rd",
+            "weight": 1
+         },
+         {
+            "value": "Palo Verde",
+            "weight": 1
+         },
+         {
+            "value": "Park St.",
+            "weight": 1
+         },
+         {
+            "value": "Park Street",
+            "weight": 1
+         },
+         {
+            "value": "Pine Drive",
+            "weight": 1
+         },
+         {
+            "value": "Pinon Parkway",
+            "weight": 1
+         },
+         {
+            "value": "Pleasant Ave.",
+            "weight": 1
+         },
+         {
+            "value": "Quail Rd",
+            "weight": 1
+         },
+         {
+            "value": "Quail Run",
+            "weight": 1
+         },
+         {
+            "value": "River Valley Run",
+            "weight": 1
+         },
+         {
+            "value": "Round Lake Rd.",
+            "weight": 1
+         },
+         {
+            "value": "Second Ave",
+            "weight": 1
+         },
+         {
+            "value": "Sixth St",
+            "weight": 1
+         },
+         {
+            "value": "Smith Rd.",
+            "weight": 1
+         },
+         {
+            "value": "Spruce Road",
+            "weight": 1
+         },
+         {
+            "value": "SR 4 E",
+            "weight": 1
+         },
+         {
+            "value": "SR 4 West",
+            "weight": 1
+         },
+         {
+            "value": "State Route 215",
+            "weight": 1
+         },
+         {
+            "value": "Sudden Valley Drive",
+            "weight": 1
+         },
+         {
+            "value": "Sunset Blvd.",
+            "weight": 1
+         },
+         {
+            "value": "Third Street",
+            "weight": 1
+         },
+         {
+            "value": "Vista View",
+            "weight": 1
+         },
+         {
+            "value": "Walnut",
+            "weight": 1
+         },
+         {
+            "value": "Washington Ave",
+            "weight": 1
+         },
+         {
+            "value": "Washington Ave.",
+            "weight": 1
+         },
+         {
+            "value": "West 5th Street",
+            "weight": 1
+         },
+         {
+            "value": "West Maple Avenue",
+            "weight": 1
+         },
+         {
+            "value": "Wetherby Rd",
+            "weight": 1
+         },
+         {
+            "value": "Wetherby Rd",
+            "weight": 1
+         },
+         {
+            "value": "Willow",
+            "weight": 1
+         },
+         {
+            "value": "Willow Lane",
+            "weight": 1
+         },
+         {
+            "value": "Wisner Road",
+            "weight": 1
+         }
+    ],
+    "line_two": [
+        {
+            "value": "",
+            "weight": 100
+        },
+        {
+            "value": "#100",
+            "weight": 1
+        },
+        {
+            "value": "#105",
+            "weight": 1
+        },
+        {
+            "value": "#108",
+            "weight": 1
+        },
+        {
+            "value": "#2",
+            "weight": 1
+        },
+        {
+            "value": "#202",
+            "weight": 1
+        },
+        {
+            "value": "#204",
+            "weight": 1
+        },
+        {
+            "value": "#30",
+            "weight": 1
+        },
+        {
+            "value": "101",
+            "weight": 1
+        },
+        {
+            "value": "201",
+            "weight": 1
+        },
+        {
+            "value": "202",
+            "weight": 1
+        },
+        {
+            "value": "Apt 1",
+            "weight": 1
+        },
+        {
+            "value": "Apt 24A",
+            "weight": 1
+        },
+        {
+            "value": "Apt 24B",
+            "weight": 1
+        },
+        {
+            "value": "Apt 4",
+            "weight": 1
+        },
+        {
+            "value": "Apt 126",
+            "weight": 1
+        },
+        {
+            "value": "Apt. 204",
+            "weight": 1
+        },
+        {
+            "value": "Apt. 205",
+            "weight": 1
+        },
+        {
+            "value": "Apartment 6",
+            "weight": 1
+        },
+        {
+            "value": "Room 112",
+            "weight": 1
+        },
+        {
+            "value": "Ste. 306",
+            "weight": 1
+        },
+        {
+            "value": "Ste. 515",
+            "weight": 1
+        },
+        {
+            "value": "Suite 104",
+            "weight": 1
+        },
+        {
+            "value": "Suite 105",
+            "weight": 1
+        },
+        {
+            "value": "Suite 107",
+            "weight": 1
+        }
+    ]
+}

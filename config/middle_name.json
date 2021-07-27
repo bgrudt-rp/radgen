@@ -1,0 +1,342 @@
+{
+    "female": [
+         {
+            "value": "Alice",
+            "weight": 1
+         },
+        {
+            "value": "Amy",
+            "weight": 1
+         },
+         {
+            "value": "Ann",
+            "weight": 3
+         },
+         {
+            "value": "Anne",
+            "weight": 7
+         },
+         {
+            "value": "Aurora",
+            "weight": 1
+         },
+         {
+            "value": "Autumn",
+            "weight": 1
+         },
+         {
+            "value": "Ava",
+            "weight": 1
+         },
+         {
+            "value": "Beth",
+            "weight": 1
+         },
+         {
+            "value": "Catherine",
+            "weight": 1
+         },
+         {
+            "value": "Charlotte",
+            "weight": 1
+         },
+         {
+            "value": "Day",
+            "weight": 1
+         },
+         {
+            "value": "Elizabeth",
+            "weight": 7
+         },
+         {
+            "value": "Emily",
+            "weight": 3
+         },
+         {
+            "value": "Emika",
+            "weight": 1
+         },
+         {
+            "value": "Evelyn",
+            "weight": 1
+         },
+         {
+            "value": "Fatima",
+            "weight": 1
+         },
+         {
+            "value": "Grace",
+            "weight": 2
+         },
+         {
+            "value": "Harper",
+            "weight": 1
+         },
+         {
+            "value": "Isabella",
+            "weight": 1
+         },
+         {
+            "value": "Isla",
+            "weight": 1
+         },
+         {
+            "value": "Jade",
+            "weight": 1
+         },
+         {
+            "value": "Jane",
+            "weight": 3
+         },
+         {
+            "value": "Jean",
+            "weight": 1
+         },
+         {
+            "value": "Jessica",
+            "weight": 1
+         },
+         {
+            "value": "Kate",
+            "weight": 5
+         },
+         {
+            "value": "Kay",
+            "weight": 3
+         },
+         {
+            "value": "Layla",
+            "weight": 1
+         },
+         {
+            "value": "Leah",
+            "weight": 1
+         },
+         {
+            "value": "Leigh",
+            "weight": 1
+         },
+         {
+            "value": "Lillian",
+            "weight": 1
+         },
+         {
+            "value": "Louise",
+            "weight": 1
+         },
+         {
+            "value": "Lucia",
+            "weight": 1
+         },
+         {
+            "value": "Margaret",
+            "weight": 1
+         },
+         {
+            "value": "Maria",
+            "weight": 1
+         },
+         {
+            "value": "Marie",
+            "weight": 9
+         },
+         {
+            "value": "May",
+            "weight": 1
+         },
+         {
+            "value": "Mia",
+            "weight": 1
+         },
+         {
+            "value": "Nicole",
+            "weight": 6
+         },
+         {
+            "value": "Olivia",
+            "weight": 1
+         },
+         {
+            "value": "Renee",
+            "weight": 3
+         },
+         {
+            "value": "Rose",
+            "weight": 6
+         },
+         {
+            "value": "Ruth",
+            "weight": 1
+         },
+         {
+            "value": "Sarah",
+            "weight": 4
+         },
+         {
+            "value": "Sophia",
+            "weight": 1
+         },
+         {
+            "value": "Summer",
+            "weight": 1
+         },
+         {
+            "value": "Victoria",
+            "weight": 1
+         }
+    ],
+    "male": [
+        {
+            "value": "Aaron",
+            "weight": 1
+         },
+        {
+            "value": "Alexander",
+            "weight": 1
+         },
+         {
+            "value": "Ali",
+            "weight": 1
+         },
+         {
+            "value": "Andrew",
+            "weight": 3
+         },
+         {
+            "value": "Archer",
+            "weight": 1
+         },
+         {
+            "value": "Archie",
+            "weight": 1
+         },
+         {
+            "value": "Benjamin",
+            "weight": 3
+         },
+         {
+            "value": "Charles",
+            "weight": 3
+         },
+         {
+            "value": "Christopher",
+            "weight": 8
+         },
+         {
+            "value": "Daniel",
+            "weight": 2
+         },
+         {
+            "value": "David",
+            "weight": 6
+         },
+         {
+            "value": "Day",
+            "weight": 1
+         },
+         {
+            "value": "Edward",
+            "weight": 8
+         },
+         {
+            "value": "Gabriel",
+            "weight": 1
+         },
+         {
+            "value": "Henry",
+            "weight": 1
+         },
+         {
+            "value": "Jack",
+            "weight": 1
+         },
+         {
+            "value": "Jackson",
+            "weight": 1
+         },
+         {
+            "value": "James",
+            "weight": 15
+         },
+         {
+            "value": "Jay",
+            "weight": 1
+         },
+         {
+            "value": "John",
+            "weight": 1
+         },
+         {
+            "value": "Jose",
+            "weight": 1
+         },
+         {
+            "value": "Lee",
+            "weight": 5
+         },
+         {
+            "value": "Leonardo",
+            "weight": 1
+         },
+         {
+            "value": "Lewis",
+            "weight": 1
+         },
+         {
+            "value": "Lucas",
+            "weight": 1
+         },
+         {
+            "value": "Michael",
+            "weight": 7
+         },
+         {
+            "value": "Noah",
+            "weight": 1
+         },
+         {
+            "value": "Oliver",
+            "weight": 1
+         },
+         {
+            "value": "Paul",
+            "weight": 2
+         },
+         {
+            "value": "Peter",
+            "weight": 2
+         },
+         {
+            "value": "Raphael",
+            "weight": 1
+         },
+         {
+            "value": "Reed",
+            "weight": 1
+         },
+         {
+            "value": "Robert",
+            "weight": 6
+         },
+         {
+            "value": "Thomas",
+            "weight": 7
+         },
+         {
+            "value": "Wei",
+            "weight": 1
+         },
+         {
+            "value": "William",
+            "weight": 4
+         },
+         {
+            "value": "Wills",
+            "weight": 1
+         },
+         {
+            "value": "Zachary",
+            "weight": 1
+         }
+    ]
+}

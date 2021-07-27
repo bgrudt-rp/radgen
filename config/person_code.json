@@ -1,0 +1,402 @@
+{
+    "codesets": [
+            {
+                "codeset": "ethnicity",
+                "fill_rate": 1000,
+                "values": [
+                    {
+                        "int_code": "hisp",
+                        "weight": 30,                        
+                        "code": {
+                            "ext_code": "H",
+                            "description": "Hispanic or Latino"
+                        }        
+                    },
+                    {
+                        "int_code": "not_hisp",
+                        "weight": 70,                        
+                        "code": {
+                            "ext_code": "N",
+                            "description": "Not Hispanic or Latino"
+                        }        
+                    },
+                    {
+                        "int_code": "unknown",
+                        "weight": 20,                        
+                        "code": {
+                            "ext_code": "U",
+                            "description": "Unknown Ethnicity"
+                        }        
+                    }
+                ]
+            },
+            {
+                "codeset": "language",
+                "fill_rate": 1000,
+                "values": [
+                    {
+                        "int_code": "english",
+                        "weight": 2390,                        
+                        "code": {
+                            "ext_code": "eng",
+                            "description": "English"
+                        }        
+                    },
+                    {
+                        "int_code": "spanish",
+                        "weight": 410,                        
+                        "code": {
+                            "ext_code": "spa",
+                            "description": "Spanish"
+                        }        
+                    },
+                    {
+                        "int_code": "chinese",
+                        "weight": 35,                        
+                        "code": {
+                            "ext_code": "chi",
+                            "description": "Chinese - Mandarin"
+                        }        
+                    },
+                    {
+                        "int_code": "arabic",
+                        "weight": 12,                        
+                        "code": {
+                            "ext_code": "ara",
+                            "description": "Arabic"
+                        }        
+                    },
+                    {
+                        "int_code": "french",
+                        "weight": 12,                        
+                        "code": {
+                            "ext_code": "fre",
+                            "description": "French"
+                        }        
+                    },
+                    {
+                        "int_code": "korean",
+                        "weight": 11,                        
+                        "code": {
+                            "ext_code": "kor",
+                            "description": "Korean"
+                        }        
+                    },
+                    {
+                        "int_code": "russian",
+                        "weight": 10,                        
+                        "code": {
+                            "ext_code": "rus",
+                            "description": "Russian"
+                        }        
+                    },
+                    {
+                        "int_code": "german",
+                        "weight": 9,                        
+                        "code": {
+                            "ext_code": "ger",
+                            "description": "German"
+                        }        
+                    },
+                    {
+                        "int_code": "hindi",
+                        "weight": 8,                        
+                        "code": {
+                            "ext_code": "hin",
+                            "description": "Hindi"
+                        }        
+                    },
+                    {
+                        "int_code": "portuguese",
+                        "weight": 7,                        
+                        "code": {
+                            "ext_code": "por",
+                            "description": "Portuguese"
+                        }        
+                    },
+                    {
+                        "int_code": "italian",
+                        "weight": 5,                        
+                        "code": {
+                            "ext_code": "ita",
+                            "description": "Italian"
+                        }        
+                    },
+                    {
+                        "int_code": "polish",
+                        "weight": 5,                        
+                        "code": {
+                            "ext_code": "pol",
+                            "description": "Polish"
+                        }        
+                    },
+                    {
+                        "int_code": "japanese",
+                        "weight": 4,                        
+                        "code": {
+                            "ext_code": "jpn",
+                            "description": "Japanese"
+                        }        
+                    },
+                    {
+                        "int_code": "telugu",
+                        "weight": 3,                        
+                        "code": {
+                            "ext_code": "tel",
+                            "description": "Telugu"
+                        }        
+                    },
+                    {
+                        "int_code": "bengali",
+                        "weight": 3,                        
+                        "code": {
+                            "ext_code": "ben",
+                            "description": "Bengali"
+                        }        
+                    },
+                    {
+                        "int_code": "greek",
+                        "weight": 3,                        
+                        "code": {
+                            "ext_code": "gre",
+                            "description": "Greek"
+                        }        
+                    },
+                    {
+                        "int_code": "punjabi",
+                        "weight": 2,                        
+                        "code": {
+                            "ext_code": "pun",
+                            "description": "Punjabi"
+                        }        
+                    },
+                    {
+                        "int_code": "croatian",
+                        "weight": 2,                        
+                        "code": {
+                            "ext_code": "cro",
+                            "description": "Croatian"
+                        }        
+                    }
+                ]
+            },
+            {
+                "codeset": "marital_status",
+                "fill_rate": 1000,
+                "values": [
+                    {
+                        "int_code": "separated",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "A",
+                            "description": "Separated"
+                        }        
+                    },
+                    {
+                        "int_code": "unmarried",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "B",
+                            "description": "Unmarried"
+                        }        
+                    },
+                    {
+                        "int_code": "common_law",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "C",
+                            "description": "Common Law"
+                        }        
+                    },
+                    {
+                        "int_code": "divorced",
+                        "weight": 7,                        
+                        "code": {
+                            "ext_code": "D",
+                            "description": "Divorced"
+                        }        
+                    },
+                    {
+                        "int_code": "legally_separated",
+                        "weight": 3,                        
+                        "code": {
+                            "ext_code": "E",
+                            "description": "Legally Separated"
+                        }        
+                    },
+                    {
+                        "int_code": "living_together",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "G",
+                            "description": "Living Together"
+                        }        
+                    },
+                    {
+                        "int_code": "interlocutory",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "I",
+                            "description": "Interlocutory"
+                        }        
+                    },
+                    {
+                        "int_code": "married",
+                        "weight": 18,                        
+                        "code": {
+                            "ext_code": "M",
+                            "description": "Married"
+                        }        
+                    },
+                    {
+                        "int_code": "annulled",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "N",
+                            "description": "Annulled"
+                        }        
+                    },
+                    {
+                        "int_code": "other",
+                        "weight": 3,                        
+                        "code": {
+                            "ext_code": "O",
+                            "description": "Other"
+                        }        
+                    },
+                    {
+                        "int_code": "domestic_partner",
+                        "weight": 3,                        
+                        "code": {
+                            "ext_code": "P",
+                            "description": "Domestic Partner"
+                        }        
+                    },
+                    {
+                        "int_code": "registered_partner",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "R",
+                            "description": "Registered Domestic Partner"
+                        }        
+                    },
+                    {
+                        "int_code": "single",
+                        "weight": 15,                        
+                        "code": {
+                            "ext_code": "S",
+                            "description": "Single"
+                        }        
+                    },
+                    {
+                        "int_code": "unreported",
+                        "weight": 2,                        
+                        "code": {
+                            "ext_code": "T",
+                            "description": "Unreported"
+                        }        
+                    },
+                    {
+                        "int_code": "unknown",
+                        "weight": 5,                        
+                        "code": {
+                            "ext_code": "U",
+                            "description": "Unknown"
+                        }        
+                    },
+                    {
+                        "int_code": "widowed",
+                        "weight": 2,                        
+                        "code": {
+                            "ext_code": "W",
+                            "description": "Widowed"
+                        }        
+                    }
+                ]
+            },
+            {
+                "codeset": "race",
+                "fill_rate": 1000,
+                "values": [
+                    {
+                        "int_code": "native",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "1002-5",
+                            "description": "American Indian or Alaska Native"
+                        }        
+                    },
+                    {
+                        "int_code": "asian",
+                        "weight": 5,                        
+                        "code": {
+                            "ext_code": "2028-9",
+                            "description": "Asian"
+                        }        
+                    },
+                    {
+                        "int_code": "black",
+                        "weight": 12,                        
+                        "code": {
+                            "ext_code": "2054-5",
+                            "description": "Black or African American"
+                        }        
+                    },
+                    {
+                        "int_code": "hawaiian",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "2076-8",
+                            "description": "Native Hawaiian or Other Pacific Islander"
+                        }        
+                    },
+                    {
+                        "int_code": "other",
+                        "weight": 21,                        
+                        "code": {
+                            "ext_code": "2131-1",
+                            "description": "Other Race"
+                        }        
+                    },
+                    {
+                        "int_code": "white",
+                        "weight": 60,                        
+                        "code": {
+                            "ext_code": "2106-3",
+                            "description": "White"
+                        }        
+                    }
+                ]
+            },
+            {
+                "codeset": "sex",
+                "fill_rate": 1000,
+                "values": [
+                    {
+                        "int_code": "female",
+                        "weight": 101,                        
+                        "code": {
+                            "ext_code": "F",
+                            "description": "Female"
+                        }        
+                    },
+                    {
+                        "int_code": "male",
+                        "weight": 100,                        
+                        "code": {
+                            "ext_code": "M",
+                            "description": "Male"
+                        }        
+                    },
+                    {
+                        "int_code": "unknown",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "U",
+                            "description": "Unknown of Undefined"
+                        }        
+                    }
+                ]
+            }
+    ]
+}

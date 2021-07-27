@@ -1,7 +1,7 @@
 package gen
 
 const (
-	dataPath       = "/users/brandongrudt/projects/radgen/fixtures/"
+	dataPath       = "/users/brandongrudt/projects/radgen/config/"
 	firstNameFile  = "first_name.json"
 	lastNameFile   = "last_name.json"
 	middleNameFile = "middle_name.json"

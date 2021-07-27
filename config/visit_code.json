@@ -1,0 +1,378 @@
+{
+    "codesets": [
+        {
+            "codeset": "admit_source",
+            "fill_rate": 1000,
+            "values": [
+                {
+                    "int_code": "phys_ref",
+                    "weight": 20,                        
+                    "code": {
+                        "ext_code": "01",
+                        "description": "Physician Referral"
+                    }        
+                },
+                {
+                    "int_code": "clin_ref",
+                    "weight": 10,                        
+                    "code": {
+                        "ext_code": "02",
+                        "description": "Clinic Referral"
+                    }        
+                },
+                {
+                    "int_code": "hmo_ref",
+                    "weight": 1,                        
+                    "code": {
+                        "ext_code": "03",
+                        "description": "HMO Referral"
+                    }        
+                },
+                {
+                    "int_code": "trans_hosp",
+                    "weight": 5,                        
+                    "code": {
+                        "ext_code": "04",
+                        "description": "Transfer from a hospital"
+                    }        
+                },
+                {
+                    "int_code": "trans_snf",
+                    "weight": 3,                        
+                    "code": {
+                        "ext_code": "05",
+                        "description": "Transfer from a skilled nursing facility"
+                    }        
+                },
+                {
+                    "int_code": "trans_hc",
+                    "weight": 3,                        
+                    "code": {
+                        "ext_code": "06",
+                        "description": "Transfer from another health care facility"
+                    }        
+                },
+                {
+                    "int_code": "er",
+                    "weight": 10,                        
+                    "code": {
+                        "ext_code": "07",
+                        "description": "Emergency room"
+                    }        
+                },
+                {
+                    "int_code": "law",
+                    "weight": 1,                        
+                    "code": {
+                        "ext_code": "08",
+                        "description": "Court/law enforcement"
+                    }        
+                },
+                {
+                    "int_code": "not_avail",
+                    "weight": 10,                        
+                    "code": {
+                        "ext_code": "09",
+                        "description": "Information not available"
+                    }        
+                }
+            ]
+        },
+        {
+            "codeset": "admit_type",
+            "fill_rate": 1000,
+            "values": [
+                {
+                    "int_code": "accident",
+                    "weight": 1,                        
+                    "code": {
+                        "ext_code": "A",
+                        "description": "Accident"
+                    }        
+                },
+                {
+                    "int_code": "elective",
+                    "weight": 1,                        
+                    "code": {
+                        "ext_code": "C",
+                        "description": "Elective"
+                    }        
+                },
+                {
+                    "int_code": "emergency",
+                    "weight": 15,                        
+                    "code": {
+                        "ext_code": "E",
+                        "description": "Emergency"
+                    }        
+                },
+                {
+                    "int_code": "labor",
+                    "weight": 3,                        
+                    "code": {
+                        "ext_code": "L",
+                        "description": "Labor and Delivery"
+                    }        
+                },
+                {
+                    "int_code": "newborn",
+                    "weight": 3,                        
+                    "code": {
+                        "ext_code": "N",
+                        "description": "Newborn"
+                    }        
+                },
+                {
+                    "int_code": "routine",
+                    "weight": 20,                        
+                    "code": {
+                        "ext_code": "R",
+                        "description": "Routine"
+                    }        
+                },
+                {
+                    "int_code": "urgent",
+                    "weight": 5,                        
+                    "code": {
+                        "ext_code": "U",
+                        "description": "Urgent"
+                    }        
+                }
+            ]
+        },
+            {
+                "codeset": "patient_class",
+                "fill_rate": 1000,
+                "values": [
+                    {
+                        "int_code": "commercial",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "C",
+                            "description": "Commercial Account"
+                        }        
+                    },
+                    {
+                        "int_code": "emergency",
+                        "weight": 100,                        
+                        "code": {
+                            "ext_code": "E",
+                            "description": "Emergency"
+                        }        
+                    },
+                    {
+                        "int_code": "inpatient",
+                        "weight": 30,                        
+                        "code": {
+                            "ext_code": "I",
+                            "description": "Inpatient"
+                        }        
+                    },
+                    {
+                        "int_code": "na",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "N",
+                            "description": "Not Applicable"
+                        }        
+                    },
+                    {
+                        "int_code": "obstetrics",
+                        "weight": 5,                        
+                        "code": {
+                            "ext_code": "B",
+                            "description": "Obstetrics"
+                        }        
+                    },
+                    {
+                        "int_code": "outpatient",
+                        "weight": 150,                        
+                        "code": {
+                            "ext_code": "O",
+                            "description": "Outpatient"
+                        }        
+                    },
+                    {
+                        "int_code": "preadmit",
+                        "weight": 10,                        
+                        "code": {
+                            "ext_code": "P",
+                            "description": "Pre-admit"
+                        }        
+                    },
+                    {
+                        "int_code": "recurring",
+                        "weight": 2,                        
+                        "code": {
+                            "ext_code": "R",
+                            "description": "Recurring Patient"
+                        }        
+                    },
+                    {
+                        "int_code": "unknown",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "U",
+                            "description": "Unknown"
+                        }        
+                    },
+                    {
+                        "int_code": "observation",
+                        "weight": 5,                        
+                        "code": {
+                            "ext_code": "S",
+                            "description": "Observation"
+                        }        
+                    }
+                ]
+            },
+            {
+                "codeset": "patient_type",
+                "fill_rate": 1000,
+                "values": [
+                    {
+                        "int_code": "doctor",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "DOC",
+                            "description": "Doctor Office"
+                        }        
+                    },
+                    {
+                        "int_code": "emergency",
+                        "weight": 20,                        
+                        "code": {
+                            "ext_code": "EME",
+                            "description": "Emergency Room"
+                        }        
+                    },
+                    {
+                        "int_code": "inpatient",
+                        "weight": 5,                        
+                        "code": {
+                            "ext_code": "INP",
+                            "description": "Inpatient"
+                        }        
+                    },
+                    {
+                        "int_code": "observation",
+                        "weight": 3,                        
+                        "code": {
+                            "ext_code": "INO",
+                            "description": "Observation Patient"
+                        }        
+                    },
+                    {
+                        "int_code": "newborn",
+                        "weight": 2,                        
+                        "code": {
+                            "ext_code": "NBR",
+                            "description": "Newborn"
+                        }        
+                    },
+                    {
+                        "int_code": "outpatient",
+                        "weight": 30,                        
+                        "code": {
+                            "ext_code": "OUT",
+                            "description": "Outpatient"
+                        }        
+                    },
+                    {
+                        "int_code": "recurring",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "RCR",
+                            "description": "Recurring Outpatient"
+                        }        
+                    },
+                    {
+                        "int_code": "referred",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "REF",
+                            "description": "Referred Outpatient"
+                        }        
+                    },
+                    {
+                        "int_code": "surgery",
+                        "weight": 4,                        
+                        "code": {
+                            "ext_code": "SDC",
+                            "description": "Surgical Day Care"
+                        }        
+                    },
+                    {
+                        "int_code": "unknown",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "UNK",
+                            "description": "Unknown"
+                        }        
+                    }
+                ]
+            },
+            {
+                "codeset": "service",
+                "fill_rate": 1000,
+                "values": [
+                    {
+                        "int_code": "ambulatory",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "AMB",
+                            "description": "Ambulatory Care"
+                        }        
+                    },
+                    {
+                        "int_code": "cardiology",
+                        "weight": 2,                        
+                        "code": {
+                            "ext_code": "CAR",
+                            "description": "Cardiology"
+                        }        
+                    },
+                    {
+                        "int_code": "clinic",
+                        "weight": 2,                        
+                        "code": {
+                            "ext_code": "CLI",
+                            "description": "Outpatient Clinic"
+                        }        
+                    },
+                    {
+                        "int_code": "emergency",
+                        "weight": 7,                        
+                        "code": {
+                            "ext_code": "EME",
+                            "description": "Emergency Room"
+                        }        
+                    },
+                    {
+                        "int_code": "laboratory",
+                        "weight": 10,                        
+                        "code": {
+                            "ext_code": "LAB",
+                            "description": "Laboratory"
+                        }        
+                    },
+                    {
+                        "int_code": "radiology",
+                        "weight": 15,                        
+                        "code": {
+                            "ext_code": "RAD",
+                            "description": "Radiology"
+                        }        
+                    },
+                    {
+                        "int_code": "surgical",
+                        "weight": 1,                        
+                        "code": {
+                            "ext_code": "SUS",
+                            "description": "Surgical Services"
+                        }        
+                    }
+                ]
+            }
+    ]
+}

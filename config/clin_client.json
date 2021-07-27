@@ -1,0 +1,151 @@
+{
+    "clin_clients": [
+        {
+            "uq_name": "columbus_reg",
+            "name": "Piedmont Columbus Regional",
+            "sending_app": "PIED",
+            "sending_fac": "CRMC",
+            "weight": 2,
+            "locales": [
+                {
+                    "city": "Box Springs",
+                    "state": "GA",
+                    "zip": "31801",
+                    "weight": 1
+                },
+                {
+                    "city": "Columbus",
+                    "state": "GA",
+                    "zip": "31801",
+                    "weight": 3
+                },
+                {
+                    "city": "Columbus",
+                    "state": "GA",
+                    "zip": "31829",
+                    "weight": 2
+                },
+                {
+                    "city": "Columbus",
+                    "state": "GA",
+                    "zip": "31901",
+                    "weight": 6
+                },
+                {
+                    "city": "Columbus",
+                    "state": "GA",
+                    "zip": "31917",
+                    "weight": 2
+                },
+                {
+                    "city": "Fort Benning",
+                    "state": "GA",
+                    "zip": "31905",
+                    "weight": 2
+                },
+                {
+                    "city": "Piney Grove",
+                    "state": "GA",
+                    "zip": "31808",
+                    "weight": 1
+                }
+            ]
+        },
+        {
+            "uq_name": "grant_mc",
+            "name": "Grant Medical Center",
+            "sending_app": "EPIC",
+            "sending_fac": "GMC",
+            "weight": 4,
+            "locales": [
+                {
+                    "city": "Columbus",
+                    "state": "OH",
+                    "zip": "43065",
+                    "weight": 5
+                },
+                {
+                    "city": "Columbus",
+                    "state": "OH",
+                    "zip": "43235",
+                    "weight": 5
+                },
+                {
+                    "city": "Columbus",
+                    "state": "OH",
+                    "zip": "43119",
+                    "weight": 5
+                },
+                {
+                    "city": "Dublin",
+                    "state": "OH",
+                    "zip": "43016",
+                    "weight": 2
+                },
+                {
+                    "city": "Hilliard",
+                    "state": "OH",
+                    "zip": "43016",
+                    "weight": 2
+                },
+                {
+                    "city": "Reynoldsburg",
+                    "state": "OH",
+                    "zip": "43068",
+                    "weight": 2
+                }
+            ]
+        },
+        {
+            "uq_name": "memhosp_uc",
+            "name": "Memorial Hospital of Union County",
+            "sending_app": "MEMHOSP",
+            "sending_fac": "001",
+            "weight": 1,
+            "locales": [
+                {
+                    "city": "Dublin",
+                    "state": "OH",
+                    "zip": "43016",
+                    "weight": 1
+                },
+                {
+                    "city": "Dublin",
+                    "state": "OH",
+                    "zip": "43017",
+                    "weight": 1
+                },
+                {
+                    "city": "East Liberty",
+                    "state": "OH",
+                    "zip": "43319",
+                    "weight": 1
+                },
+                {
+                    "city": "Marysville",
+                    "state": "OH",
+                    "zip": "43040",
+                    "weight": 10
+                },
+                {
+                    "city": "Milford Center",
+                    "state": "OH",
+                    "zip": "43045",
+                    "weight": 2
+                },
+                {
+                    "city": "Ostrander",
+                    "state": "OH",
+                    "zip": "43061",
+                    "weight": 2
+                },
+                {
+                    "city": "Raymond",
+                    "state": "OH",
+                    "zip": "43067",
+                    "weight": 2
+                }
+            ]
+        }
+    ]
+}
