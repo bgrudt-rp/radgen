@@ -2,6 +2,6 @@ package gen
 
 type Message struct {
 	Client  Client
-	Patient Patient
+	Patient Person
 	Visit   Visit
 }

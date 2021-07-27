@@ -6,7 +6,8 @@ const (
 	lastNameFile   = "last_name.json"
 	middleNameFile = "middle_name.json"
 	addressFile    = "street_address.json"
-	codeFile       = "codes.json"
-	clientFile     = "clin_clients.json"
-	contextFile    = "clin_contexts.json"
+	personCodeFile = "person_code.json"
+	visitCodeFile  = "visit_code.json"
+	clientFile     = "clin_client.json"
+	contextFile    = "clin_context.json"
 )

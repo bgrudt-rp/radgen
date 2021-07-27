@@ -1,10 +1,7 @@
 package gen
 
 import (
-	"encoding/json"
-	"io/ioutil"
 	"math/rand"
-	"os"
 	"time"
 )
 
@@ -34,6 +31,8 @@ type WeightedValue struct {
 	Weight int    `json:"weight"`
 }
 
+//randomDate requires a start and end time and will
+//return a date that is positioned between the two.
 func randomDate(start, end time.Time) time.Time {
 	min := time.Time(start).Unix()
 	max := time.Time(end).Unix()
@@ -43,6 +42,20 @@ func randomDate(start, end time.Time) time.Time {
 	return time.Unix(sec, 0)
 }
 
+//randomDateByRandom wraps randomDate to allow ease of
+//use.  Values correspond to min and max years of offset.
+func randomDateByYear(min, max int) (time.Time, error) {
+	t := time.Now()
+	start := t.AddDate(-max, 0, 0)
+	end := t.AddDate(-min, 0, 0)
+	dob := randomDate(start, end)
+	return dob, nil
+}
+
+//randomInt takes a minimum and maximum int value and returns
+//a random number between the two.  Used by the weighted code
+//and weighted value functions to return a random value from
+//a set.
 func randomInt(min, max int) int {
 	var out int
 	rand.Seed(time.Now().UnixNano())
@@ -50,37 +63,34 @@ func randomInt(min, max int) int {
 	return out
 }
 
-//ReturnByInternalCode takes a codeset and an internal code.  It
-//returns a Code struct that supplies the external values needed for
-//message generation.
-func ReturnByInternalCode(cs, cv string) (Code, error) {
-	var out Code
+//randomValues takes a list of weighted values and returns
+//one of the corresponding values at random.  The Weight values of the
+//referenced list must be > 0 to avoid processing error.
+func randomValue(l *[]WeightedValue) (string, error) {
+	var n string
+	var count int
+	var cur int
 
-	//Loading code file
-	file := dataPath + codeFile
-
-	j, err := os.Open(file)
-	if err != nil {
-		return out, err
-	}
-	defer j.Close()
-
-	b, _ := ioutil.ReadAll(j)
-
-	var c CodeList
-
-	err = json.Unmarshal(b, &c)
-	if err != nil {
-		return out, err
+	for i := 0; i < len(*l); i++ {
+		count = count + (*l)[i].Weight
 	}
 
-	return out, nil
+	rng := randomInt(1, count)
+
+	for i := 0; i < len(*l); i++ {
+		cur = cur + (*l)[i].Weight
+		if cur >= rng {
+			return (*l)[i].Value, nil
+		}
+	}
+
+	return n, nil
 }
 
 //ReturnRandomCode takes a list of weighted codes and returns
 //one of the corresponding codes at random.  The Weight values of the
 //referenced list must be > 0 to avoid processing error.
-func ReturnRandomWeightedCode(l *Codeset) (WeightedCode, error) {
+func randomWeightedCode(l *Codeset) (WeightedCode, error) {
 	var out WeightedCode
 	var count int
 	var cur int
@@ -104,28 +114,4 @@ func ReturnRandomWeightedCode(l *Codeset) (WeightedCode, error) {
 	}
 
 	return out, nil
-}
-
-//ReturnRandomValues takes a list of weighted values and returns
-//one of the corresponding values at random.  The Weight values of the
-//referenced list must be > 0 to avoid processing error.
-func ReturnRandomValue(l *[]WeightedValue) (string, error) {
-	var n string
-	var count int
-	var cur int
-
-	for i := 0; i < len(*l); i++ {
-		count = count + (*l)[i].Weight
-	}
-
-	rng := randomInt(1, count)
-
-	for i := 0; i < len(*l); i++ {
-		cur = cur + (*l)[i].Weight
-		if cur >= rng {
-			return (*l)[i].Value, nil
-		}
-	}
-
-	return n, nil
 }

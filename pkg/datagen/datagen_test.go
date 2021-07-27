@@ -4,32 +4,31 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/bgrudt/radgen/config"
 	"github.com/davecgh/go-spew/spew"
 )
 
-func TestRandomizer(t *testing.T) {
+func TestRandomEncounter(t *testing.T) {
 	n := 0
-	for n < 11 {
+	for n < 1 {
 		var err error
 		var msg Message
 
-		err = GenerateClient(config.Cfg, &msg)
+		err = GenerateClient(&msg.Client)
 		if err != nil {
-			fmt.Printf("There was an error generating the facility")
+			fmt.Printf("There was an error generating the client")
 		}
 
-		err = GenerateContext(&msg)
-		if err != nil {
-			fmt.Printf("There was an error generating the context")
-		}
-
-		err = RandomizePatient(&msg)
+		err = GeneratePerson(&msg.Patient)
 		if err != nil {
 			fmt.Printf("There was an error randomizing the patient")
 		}
 
-		err = RandomizeVisit(&msg)
+		err = GenerateAddress(&msg.Patient.Address)
+		if err != nil {
+			fmt.Printf("There was an error randomizing the patient address")
+		}
+
+		err = GenerateVisit(&msg.Visit)
 		if err != nil {
 			fmt.Printf("There was an error randomizing the visit")
 		}
@@ -39,4 +38,41 @@ func TestRandomizer(t *testing.T) {
 		n++
 	}
 
+}
+
+func TestContextualEncounter(t *testing.T) {
+	n := 0
+	for n < 7 {
+		var err error
+		var msg Message
+
+		err = GenerateClient(&msg.Client)
+		if err != nil {
+			fmt.Printf("There was an error generating the client")
+		}
+
+		err = GenerateContext(&msg)
+		if err != nil {
+			fmt.Printf("There was an error generating the context")
+		}
+
+		err = GeneratePerson(&msg.Patient)
+		if err != nil {
+			fmt.Printf("There was an error randomizing the patient")
+		}
+
+		err = GenerateAddress(&msg.Patient.Address)
+		if err != nil {
+			fmt.Printf("There was an error randomizing the patient address")
+		}
+
+		err = GenerateVisit(&msg.Visit)
+		if err != nil {
+			fmt.Printf("There was an error randomizing the visit")
+		}
+
+		spew.Dump(msg)
+
+		n++
+	}
 }

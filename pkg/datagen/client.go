@@ -4,9 +4,6 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"os"
-
-	"github.com/bgrudt/radgen/config"
-	"github.com/davecgh/go-spew/spew"
 )
 
 type Client struct {
@@ -34,6 +31,43 @@ type Locale struct {
 	State  string `json:"state"`
 	Zip    string `json:"zip"`
 	Weight int    `json:"weight"`
+}
+
+func GenerateClient(c *Client) error {
+	file := dataPath + clientFile
+	j, err := os.Open(file)
+	if err != nil {
+		return err
+	}
+	defer j.Close()
+
+	b, _ := ioutil.ReadAll(j)
+
+	var facs ClientList
+
+	err = json.Unmarshal(b, &facs)
+	if err != nil {
+		return err
+	}
+	if len(c.UQName) < 1 {
+		f, err := returnRandomClient(&facs.ClinicalClients)
+		if err != nil {
+			return err
+		}
+
+		*c = f
+	} else {
+		for i := 0; i < len(facs.ClinicalClients); i++ {
+			if c.UQName == facs.ClinicalClients[i].UQName {
+				c.Name = facs.ClinicalClients[i].Name
+				c.SendingApplication = facs.ClinicalClients[i].SendingApplication
+				c.SendingFacility = facs.ClinicalClients[i].SendingFacility
+				break
+			}
+		}
+	}
+
+	return nil
 }
 
 func returnRandomClient(l *[]ClientDetail) (Client, error) {
@@ -81,42 +115,4 @@ func returnRandomLocale(l *[]Locale) (Locale, error) {
 	}
 
 	return out, nil
-}
-
-func GenerateClient(cfg *config.Cfg, m *Message) error {
-	file := dataPath + clientFile
-	j, err := os.Open(file)
-	if err != nil {
-		return err
-	}
-	defer j.Close()
-
-	b, _ := ioutil.ReadAll(j)
-
-	var facs ClientList
-
-	err = json.Unmarshal(b, &facs)
-	if err != nil {
-		spew.Dump(err)
-		return err
-	}
-	if len(m.Client.UQName) < 1 {
-		f, err := returnRandomClient(&facs.ClinicalClients)
-		if err != nil {
-			return err
-		}
-
-		m.Client = f
-	} else {
-		for i := 0; i < len(facs.ClinicalClients); i++ {
-			if m.Client.UQName == facs.ClinicalClients[i].UQName {
-				m.Client.Name = facs.ClinicalClients[i].Name
-				m.Client.SendingApplication = facs.ClinicalClients[i].SendingApplication
-				m.Client.SendingFacility = facs.ClinicalClients[i].SendingFacility
-				break
-			}
-		}
-	}
-
-	return nil
 }

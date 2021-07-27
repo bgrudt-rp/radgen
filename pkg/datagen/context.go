@@ -9,23 +9,28 @@ import (
 )
 
 type ContextList struct {
-	ClinicalContexts []ClinicalContext `json:"clin_clients"`
+	ClinicalContexts []ClinicalContext `json:"clin_contexts"`
 }
 
 type ClinicalContext struct {
-	UQName   string    `json:"clin_client"`
-	Contexts []Context `json:"contexts"`
+	UQName    string            `json:"clin_client"`
+	Locations []LocationContext `json:"locations"`
+}
+
+type LocationContext struct {
+	UQName       string    `json:"uq_name"`
+	LocationName string    `json:"loc_name"`
+	LocationCode string    `json:"loc_code"`
+	Weight       int       `json:"weight"`
+	Contexts     []Context `json:"contexts"`
 }
 
 type Context struct {
-	UQName       string `json:"uq_name"`
-	LocationName string `json:"loc_name"`
-	LocationCode string `json:"loc_code"`
+	AdmitSource  string `json:"admit_source"`
+	AdmitType    string `json:"admit_type"`
 	Service      string `json:"service"`
 	PatientClass string `json:"pt_class"`
 	PatientType  string `json:"pt_type"`
-	AdmitType    string `json:"admit_type"`
-	AdmitSource  string `json:"admit_source"`
 	Weight       int    `json:"weight"`
 }
 
@@ -51,6 +56,8 @@ func ReturnRandomContext(l *[]Context) (Context, error) {
 	return out, nil
 }
 
+//GenerateContext can only run once a client has been applied
+//to the message supplied in the pointer.
 func GenerateContext(m *Message) error {
 	file := dataPath + contextFile
 
@@ -70,26 +77,83 @@ func GenerateContext(m *Message) error {
 		return err
 	}
 
-	//Find my facility and apply values
+	//Find my client and apply values
 	for i := 0; i < len(cctx.ClinicalContexts); i++ {
 		if m.Client.UQName == cctx.ClinicalContexts[i].UQName {
-			// 	//Generate context - visit info
-			ct, err := ReturnRandomContext(&cctx.ClinicalContexts[i].Contexts)
+			//Generate context - visit info
+			lctx, err := returnRandomLocation(&cctx.ClinicalContexts[i].Locations)
 			if err != nil {
 				spew.Dump(err)
 				return err
 			}
+			m.Visit.Location.ExtCode = lctx.LocationCode
+			m.Visit.Location.Description = lctx.LocationName
+			lc, err := returnRandomContext(&lctx.Contexts)
+			if err != nil {
+				spew.Dump(err)
+				return err
+			}
+			//Get visit code values
+			spew.Dump(lc.AdmitSource)
+			v, err := returnVisitByInternalCode("admit_source", lc.AdmitSource)
+			spew.Dump(v)
+			if err != nil {
+				return err
+			}
+			m.Visit.AdmitSource.ExtCode = v.Code.ExtCode
+			m.Visit.AdmitSource.Description = v.Code.Description
 
-			m.Visit.Location.Description = ct.LocationName
-			m.Visit.Location.ExtCode = ct.LocationCode
-			m.Visit.Service.ExtCode = ct.Service
-			m.Visit.PatientClass.ExtCode = ct.PatientClass
-			m.Visit.PatientType.ExtCode = ct.PatientType
-			m.Visit.AdmitType.ExtCode = ct.AdmitType
-			m.Visit.AdmitSource.ExtCode = ct.AdmitSource
+			v, err = returnVisitByInternalCode("admit_type", lc.AdmitType)
+			if err != nil {
+				return err
+			}
+			m.Visit.AdmitType.ExtCode = v.Code.ExtCode
+			m.Visit.AdmitType.Description = v.Code.Description
 
 			break
 		}
 	}
 	return nil
+}
+
+func returnRandomContext(c *[]Context) (Context, error) {
+	var out Context
+	var count int
+	var cur int
+
+	for i := 0; i < len(*c); i++ {
+		count = count + (*c)[i].Weight
+	}
+
+	rng := randomInt(1, count)
+
+	for i := 0; i < len(*c); i++ {
+		cur = cur + (*c)[i].Weight
+		if cur >= rng {
+			return (*c)[i], nil
+		}
+	}
+
+	return out, nil
+}
+
+func returnRandomLocation(lc *[]LocationContext) (LocationContext, error) {
+	var out LocationContext
+	var count int
+	var cur int
+
+	for i := 0; i < len(*lc); i++ {
+		count = count + (*lc)[i].Weight
+	}
+
+	rng := randomInt(1, count)
+
+	for i := 0; i < len(*lc); i++ {
+		cur = cur + (*lc)[i].Weight
+		if cur >= rng {
+			return (*lc)[i], nil
+		}
+	}
+
+	return out, nil
 }
